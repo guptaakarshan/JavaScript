@@ -5,7 +5,18 @@ const btn = document.querySelector("form button");
 const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
 const msg = document.querySelector(".msg");
+const exchangeIcon=document.querySelector(".exchange-icon");
 
+exchangeIcon.addEventListener("click", () => {
+  let temp=fromCurr.value;
+  fromCurr.value=toCurr.value;
+  toCurr.value=temp;
+
+  loadFlag(fromCurr);
+  loadFlag(toCurr);
+
+  btn.click();
+});
 
 // Populate currency dropdowns dynamically from countryList
 dropdowns.forEach((select) => {
